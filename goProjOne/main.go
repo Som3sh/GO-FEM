@@ -2,13 +2,31 @@ package main
 
 import (
 	"fmt"
-
-	"devopspathway.com/Go/goProjOne/data"
 )
 
+func calculateTax(price float32) (float32, float32) {
+	return price * 0.09, price * 0.02
+}
+func calculateTaxTwo(price float32) (float32, float32) {
+	return price * 0.07, price * 0.05
+}
+
+// func init() {
+// 	fmt.Println("This is init function")
+
+// }
 func main() {
 
-	fmt.Println("fuck off")
-	fmt.Println(data.MaxSpeed)
-	printData()
+	// fmt.Println("fuck off")
+	// fmt.Println(data.MaxSpeed)
+	// printData()
+	// // names := []string{"Mary", "John", "Casper"}
+	// // // names := append(names , "Carol")
+	// // println(len(names))
+	stateTax, cityTax := calculateTax(100)
+	fmt.Println(stateTax, cityTax)
+
+	countryTax, _ := calculateTaxTwo(2000)
+	fmt.Println(countryTax)
+
 }
