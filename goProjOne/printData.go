@@ -14,4 +14,5 @@ func printData() {
 	println("This is a new line")
 	println(name)
 	println(q)
+	println("hell yeah!")
 }
