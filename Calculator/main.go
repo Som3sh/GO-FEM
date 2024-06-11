@@ -16,7 +16,7 @@ func main() {
 	fmt.Scanf("%d", &number2)
 	switch operation {
 	case "add":
-		fmt.Println(number1 + number2)
+		fmt.Printf("The value that you are looking for is : %d", number1+number2)
 	case "substract":
 		fmt.Println(number1 - number2)
 	case "multiply":
