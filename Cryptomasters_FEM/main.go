@@ -1,9 +1,18 @@
 package main
 
+import "sync"
+
 func main() {
-	getCurrencyData("btc")
-	getCurrencyData("eth")
-	getCurrencyData("bch")
+	currencies := []string{"btc", "eth", "bch"}
+	var wg sync.WaitGroup
+	for _, currency := range currencies {
+		wg.Add(1)
+		go func(currencyCode string) {
+			getCurrencyData(currencyCode)
+			wg.Done()
+		}(currency)
+	}
+	wg.Wait()
 
 }
 
@@ -14,26 +23,15 @@ func main() {
 //-----------------------------------------------------
 
 // Code:
-// func getCurrencyData() {
-// 	var currency string
-// 	var n int
-// 	fmt.Print("How many currencies do you want to check? Enter : \t")
+// func getCurrencyData(currency string) {
 
-// 	fmt.Scanf("%d", &n)
-// 	for i := 0; i < n; i++ {
-// 		fmt.Print("\nEnter the currency you want to check : \t")
-// 		fmt.Scanf("%s", &currency)
+// 	rate, err := api.GetRate(currency)
+// 	if err != nil {
+// 		fmt.Println(err)
 
-// 		rate, err := api.GetRate(currency)
-// 		if err != nil {
-// 			fmt.Println(err)
+// 	} else {
 
-// 		} else {
-
-// 			fmt.Printf("The rate for %v is %.2f\n", rate.Currency, rate.Price)
-// 			fmt.Println("---------------------------")
-// 		}
+// 		fmt.Printf("The rate for %v is %.2f\n", rate.Currency, rate.Price)
+// 		fmt.Println("---------------------------")
 // 	}
-// 	fmt.Println("\n\n------------Thank You---------------")
-
 // }
