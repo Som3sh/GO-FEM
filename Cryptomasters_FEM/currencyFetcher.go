@@ -15,6 +15,5 @@ func getCurrencyData(currency string) {
 	} else {
 
 		fmt.Printf("The rate for %v is %.2f\n", rate.Currency, rate.Price)
-		fmt.Println("---------------------------")
 	}
 }
