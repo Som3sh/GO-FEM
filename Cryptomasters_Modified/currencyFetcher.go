@@ -6,11 +6,6 @@ import (
 	"learninggo.com/go/Cryptomasters/api"
 )
 
-func main() {
-	getCurrencyData()
-
-}
-
 func getCurrencyData() {
 	var currency string
 	var n int
